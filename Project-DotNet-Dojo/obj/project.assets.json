@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bemrd\\source\\repos\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\Project-DotNet-Dojo.csproj",
+      "projectUniqueName": "C:\\xampp\\htdocs\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\Project-DotNet-Dojo.csproj",
       "projectName": "Project-DotNet-Dojo",
-      "projectPath": "C:\\Users\\bemrd\\source\\repos\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\Project-DotNet-Dojo.csproj",
+      "projectPath": "C:\\xampp\\htdocs\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\Project-DotNet-Dojo.csproj",
       "packagesPath": "C:\\Users\\bemrd\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bemrd\\source\\repos\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\obj\\",
+      "outputPath": "C:\\xampp\\htdocs\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bemrd\\AppData\\Roaming\\NuGet\\NuGet.Config",
