@@ -71,8 +71,8 @@ header .navbar-light .navbar-brand img.logo {
 }
 .iq-search-bar .search-input {
 	width: 100%;
-	height: 2.5em;
-	padding: 0.313em 0.938em 0.313em 2.5em;
+	height: 4em;
+	padding: 0.313em 0.938em 0.313em 3.6em;
 	border: none;
 	border-radius: 0;
 	color: var(--iq-white);
@@ -81,7 +81,7 @@ header .navbar-light .navbar-brand img.logo {
 .iq-search-bar .searchbox .search-link {
 	position: absolute;
 	left: 0.938em;
-	top: 0.375em;
+	top: 0.65em;
 	font-size: 1em;
 }
 .nav-item span.dots {
@@ -462,7 +462,7 @@ header .navbar ul li:last-child {
 .channel-logo {
 	border-left: 0.313em solid var(--iq-primary);
 	background: transparent linear-gradient(270deg, var(--iq-form-gradient-color) 0%, var(--iq-to-gradient-color) 100%);
-	padding:0.8em 0.625em 0.625em 0.938em;
+	padding:0.5em 0.625em 0.625em 0.6em;
 	width:15.938em;
 	position: relative;
 	overflow: hidden;
@@ -908,7 +908,7 @@ li.slide-item .block-description .parallax-ratting span {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(to top, rgba(83, 100, 141, 0) 0%, rgb(218, 64, 60, 0.3) 85%);
+	background: linear-gradient(to top, rgba(83, 100, 141, 0) 0%, rgba(218, 150, 60, 0.3) 85%);
 	content: '';
 	opacity: 0;
 	filter: alpha(opacity=0);

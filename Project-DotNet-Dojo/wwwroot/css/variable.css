@@ -1,8 +1,8 @@
 /*------------- Variable ------------*/
 
 :root {
-  --iq-primary: #e50914;
-  --iq-primary-hover: #bf000a;
+  --iq-primary: #e58609;
+  --iq-primary-hover: #bf6600;
   --iq-light-primary: #d7d3f8;
   --iq-placeholder:#d9d5d5;
   --iq-secondary: #6c757d;
@@ -20,4 +20,4 @@
   --iq-gray:#dddddd;
   --iq-scroll:#888888;
   --iq-form-gradient-color: rgba(11, 1, 2, 0);
-  --iq-to-gradient-color: rgba(255, 55, 65, 0.3);}
+  --iq-to-gradient-color: rgba(255, 168, 55, 0.3);}
