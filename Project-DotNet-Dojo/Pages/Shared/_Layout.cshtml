@@ -1,4 +1,7 @@
-﻿<!doctype html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+<!doctype html>
 <html lang="en-US">
 
 <head>
@@ -6,7 +9,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>@ViewData["Title"] - Project_DotNet_Dojo</title>
+   <title>@ViewData["Title"] - DojoMovie</title>
    <!-- Favicon -->
    <link rel="shortcut icon" href="~/images/favicon.ico" />
    <!-- Bootstrap CSS -->
@@ -116,6 +119,10 @@
                                        </div>
                                     </div>
                                  </li>
+
+                                 @{
+                                    if (SignInManager.IsSignedIn(User))
+                                    {
                                  <li>
                                     <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center">
                                        <img src="~/images/user/user.jpg" class="img-fluid avatar-40 rounded-circle"
@@ -154,7 +161,7 @@
                                                    </div>
                                                 </div>
                                              </a>
-                                             <a href="login.html" class="iq-sub-card setting-dropdown">
+                                             <a href="/Account/Logout" class="iq-sub-card setting-dropdown">
                                                 <div class="media align-items-center">
                                                    <div class="right-icon">
                                                       <i class="ri-logout-circle-line text-primary"></i>
@@ -168,6 +175,22 @@
                                        </div>
                                     </div>
                                  </li>
+                                    }
+                                    else
+                                    {
+                                 <li>
+                                    <a href="/Account/Login" class="btn btn-hover">
+                                       Login
+                                    </a>
+                                 </li>
+                                 <li>
+                                    <a href="/Account/Signup" class="btn btn-hover">
+                                       Signup
+                                    </a>
+                                 </li>
+                                    }
+                                 }
+
                               </ul>
                            </div>
                         </div>
@@ -278,6 +301,10 @@
                                  </div>
                               </div>
                            </li>
+
+                           @{
+                              if (SignInManager.IsSignedIn(User))
+                              {
                            <li class="nav-item nav-icon">
                               <a href="#" class="iq-user-dropdown search-toggle p-0 d-flex align-items-center"
                                  data-toggle="search-toggle">
@@ -317,7 +344,7 @@
                                              </div>
                                           </div>
                                        </a>
-                                       <a href="login.html" class="iq-sub-card setting-dropdown">
+                                       <a href="/Account/Logout" class="iq-sub-card setting-dropdown">
                                           <div class="media align-items-center">
                                              <div class="right-icon">
                                                 <i class="ri-logout-circle-line text-primary"></i>
@@ -331,6 +358,22 @@
                                  </div>
                               </div>
                            </li>
+                              }
+                              else
+                              {
+                           <li>
+                              <a href="/Account/Login" class="btn btn-hover">
+                                 Login
+                              </a>
+                           </li>
+                           <li>
+                              <a href="/Account/Signup" class="btn btn-hover">
+                                 Signup
+                              </a>
+                           </li>
+                              }
+                           }
+
                         </ul>
                      </div>
                   </nav>
