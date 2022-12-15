@@ -499,3 +499,15 @@
 </body>
 
 </html>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var url = window.location;
+        $('#top-menu').find('.active').removeClass('active');
+        $('#top-menu li a').each(function () {
+            if (this.href == url) {
+                $(this).parent().addClass('active');
+            }
+        }); 
+    });
+</script>
