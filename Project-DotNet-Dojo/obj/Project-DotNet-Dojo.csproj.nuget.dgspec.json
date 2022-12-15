@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\xampp\\htdocs\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\Project-DotNet-Dojo.csproj": {}
+    "F:\\Programming\\3_Repo Pulled\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\Project-DotNet-Dojo.csproj": {}
   },
   "projects": {
-    "C:\\xampp\\htdocs\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\Project-DotNet-Dojo.csproj": {
+    "F:\\Programming\\3_Repo Pulled\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\Project-DotNet-Dojo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\xampp\\htdocs\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\Project-DotNet-Dojo.csproj",
+        "projectUniqueName": "F:\\Programming\\3_Repo Pulled\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\Project-DotNet-Dojo.csproj",
         "projectName": "Project-DotNet-Dojo",
-        "projectPath": "C:\\xampp\\htdocs\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\Project-DotNet-Dojo.csproj",
-        "packagesPath": "C:\\Users\\bemrd\\.nuget\\packages\\",
-        "outputPath": "C:\\xampp\\htdocs\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\obj\\",
+        "projectPath": "F:\\Programming\\3_Repo Pulled\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\Project-DotNet-Dojo.csproj",
+        "packagesPath": "C:\\Users\\rizky\\.nuget\\packages\\",
+        "outputPath": "F:\\Programming\\3_Repo Pulled\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\bemrd\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\rizky\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -74,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

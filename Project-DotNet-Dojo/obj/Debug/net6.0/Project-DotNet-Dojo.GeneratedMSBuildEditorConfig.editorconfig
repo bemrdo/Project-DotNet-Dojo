@@ -8,49 +8,49 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Project_DotNet_Dojo
 build_property.RootNamespace = Project_DotNet_Dojo
-build_property.ProjectDir = C:\xampp\htdocs\Project-DotNet-Dojo\Project-DotNet-Dojo\
+build_property.ProjectDir = F:\Programming\3_Repo Pulled\Project-DotNet-Dojo\Project-DotNet-Dojo\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\xampp\htdocs\Project-DotNet-Dojo\Project-DotNet-Dojo
+build_property.MSBuildProjectDirectory = F:\Programming\3_Repo Pulled\Project-DotNet-Dojo\Project-DotNet-Dojo
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/xampp/htdocs/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Account/Login.cshtml]
+[F:/Programming/3_Repo Pulled/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Account/Logout.cshtml]
+[F:/Programming/3_Repo Pulled/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Account/Signup.cshtml]
+[F:/Programming/3_Repo Pulled/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Account/Signup.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxTaWdudXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Account/_Layout.cshtml]
+[F:/Programming/3_Repo Pulled/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Account/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxfTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Error.cshtml]
+[F:/Programming/3_Repo Pulled/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Index.cshtml]
+[F:/Programming/3_Repo Pulled/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[F:/Programming/3_Repo Pulled/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/_ViewImports.cshtml]
+[F:/Programming/3_Repo Pulled/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/_ViewStart.cshtml]
+[F:/Programming/3_Repo Pulled/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Shared/_Layout.cshtml]
+[F:/Programming/3_Repo Pulled/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-x85jasfews
