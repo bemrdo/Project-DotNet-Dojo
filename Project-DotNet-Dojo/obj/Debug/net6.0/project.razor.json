@@ -16328,6 +16328,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "f:\\Programming\\3_Repo Pulled\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\Pages\\TVSeries\\Index.cshtml",
+      "TargetPath": "Pages\\TVSeries\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "f:\\Programming\\3_Repo Pulled\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\Pages\\Error.cshtml",
       "TargetPath": "Pages\\Error.cshtml",
       "FileKind": "mvc"
