@@ -31,6 +31,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxfTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/Programming/3_Repo Pulled/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/DetailsMovies/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsc01vdmllc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Programming/3_Repo Pulled/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/DetailsSeries/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsc1Nlcmllc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Programming/3_Repo Pulled/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Details/Movies/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsc1xNb3ZpZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Programming/3_Repo Pulled/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Details/Series/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsc1xTZXJpZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/Programming/3_Repo Pulled/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -45,6 +61,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/Programming/3_Repo Pulled/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Programming/3_Repo Pulled/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/TVSeries/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVFZTZXJpZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/Programming/3_Repo Pulled/Project-DotNet-Dojo/Project-DotNet-Dojo/Pages/_ViewImports.cshtml]
