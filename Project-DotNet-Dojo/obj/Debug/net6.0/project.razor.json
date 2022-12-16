@@ -16318,6 +16318,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "f:\\Programming\\3_Repo Pulled\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\Pages\\Details\\Index.cshtml",
+      "TargetPath": "Pages\\Details\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "f:\\Programming\\3_Repo Pulled\\Project-DotNet-Dojo\\Project-DotNet-Dojo\\Pages\\Account\\Login.cshtml",
       "TargetPath": "Pages\\Account\\Login.cshtml",
       "FileKind": "mvc"
