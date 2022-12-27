@@ -1,0 +1,618 @@
+﻿@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- Slider Start -->
+<section id="home-banner-slider" class="iq-main-slider p-0 iq-rtl-direction swiper banner-home-swiper overflow-hidden" data-swiper="home-banner-slider">
+    <div  class="slider m-0 p-0 swiper-wrapper home-slider">
+        
+        @foreach (var item in Model.discoveryMovies.results)
+        {
+        <div class="swiper-slide slide swiper-bg" style="background-image:url('https://image.tmdb.org/t/p/original/@item.backdrop_path')">
+            <div class="container-fluid position-relative h-100">
+                <div class="slider-inner h-100">
+                    <div class="row align-items-center  iq-ltr-direction h-100 ">
+                    <div class="col-lg-7 col-md-12">
+                        <a href="javascript:void(0);">
+                            <div class="channel-logo" data-iq-gsap="onStart" data-iq-position-x="-150" data-iq-position-y="0" data-iq-duration="1" data-iq-delay=".4">
+                                <img src="~/images/logo.png" class="c-logo" alt="streamit" loading="lazy">
+                            </div>
+                        </a>
+                        <h1 class="slider-text big-title title text-uppercase"  data-iq-gsap="onStart" data-iq-position-x="-150" data-iq-position-y="0" data-iq-duration="1" data-iq-delay=".4">@item.title</h1>
+                        <div class="d-flex flex-wrap align-items-center r-mb-23" data-iq-gsap="onStart" data-iq-position-x="-150" data-iq-position-y="0" data-iq-duration="1" data-iq-delay=".4">
+                            <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3" >
+                                <ul
+                                class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left" >
+                                @if (item.vote_average == 0) {
+                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                } else if (item.vote_average <= 1) {
+                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                } else {
+                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                }
+                                @if (item.vote_average < 2) {
+                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                } else if (item.vote_average <= 3) {
+                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                } else {
+                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                }
+                                @if (item.vote_average < 4) {
+                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                } else if (item.vote_average <= 5) {
+                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                } else {
+                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                }
+                                @if (item.vote_average < 6) {
+                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                } else if (item.vote_average <= 7) {
+                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                } else {
+                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                }
+                                @if (item.vote_average < 8) {
+                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                } else if (item.vote_average <= 9) {
+                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                } else {
+                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                }
+                                </ul>
+                                <span class="text-white ml-2">@item.vote_average/10 (IMDb)</span>
+                            </div>
+                            <div class="d-flex align-items-center mt-2 mt-md-3">
+                                @if (item.adult == true)
+                                {
+                                    <span class="badge badge-secondary p-2">NC-17</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-success  p-2">PG-13</span>
+                                }
+                                <span class="ml-3">Popularity : @item.popularity</span>
+                            </div>
+                            <p data-iq-gsap="onStart" data-iq-position-x="0" data-iq-position-y="150" data-iq-duration="1" data-iq-delay=".5">@item.overview</p>
+                        </div>
+                        <div class="trending-list" data-wp_object-in="fadeInUp" data-delay-in="1.2">
+                            <div class="text-primary title genres">
+                                Genres : 
+                                <span class="text-body">
+                                    @foreach (var genre in item.genre_ids)
+                                    {
+                                        <a href="category-action.html">
+                                            @Model.genres[genre]
+                                        </a>
+                                        @if (genre != item.genre_ids.Last())
+                                        {
+                                            <span>, </span>
+                                        }
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center r-mb-23" data-iq-gsap="onStart" data-iq-position-x="0" data-iq-position-y="150" data-iq-duration="1" data-iq-delay=".6">
+                                    <a asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@item.id" class="btn btn-hover iq-button">
+                                        <i class="fa fa-info-circle mr-2"
+                                aria-hidden="true"></i>Detail</a>
+                        </div>
+                    </div>
+                    <div class=" col-lg-5 col-md-12 trailor-video iq-slider d-none d-lg-block">
+                        <a href="@Model.movieTrailer.FirstOrDefault(x => x.Key == item.id).Value" class="video-open playbtn" tabindex="0">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px"
+                                viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
+                                <polygon class="triangle" fill="none" stroke-width="7" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-miterlimit="10"
+                                points="73.5,62.5 148.5,105.8 73.5,149.1 "></polygon>
+                                <circle class="circle" fill="none" stroke-width="7" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-miterlimit="10" cx="106.8" cy="106.8" r="103.3">
+                                </circle>
+                            </svg>
+                            <span class="w-trailor">Watch Trailer</span>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+        
+
+    </div>
+    <div class="swiper-banner-button-prev swiper-nav" id="home-banner-slider-prev">
+        <i class="ri-arrow-left-s-line arrow-icon"></i>
+    </div>
+    <div class="swiper-banner-button-next swiper-nav" id="home-banner-slider-next">
+        <i class="ri-arrow-right-s-line arrow-icon"></i>
+    </div>
+    <div class="swiper-pagination"></div>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="44px" height="44px" id="circle"
+            fill="none" stroke="currentColor">
+            <circle r="20" cy="22" cx="22" id="test"></circle>
+        </symbol>
+    </svg>
+</section>
+<!-- Slider End -->
+    <!-- MainContent -->
+    <div class="main-content">
+
+        <section id="iq-favorites">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 overflow-hidden">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h4 class="main-title">Upcoming Movies</h4>
+                            <a href="view-all.html" class="text-primary iq-view-all">View All</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Swiper -->
+                <div class="favourite-slider">
+                    <div  class="swiper pt-2 pt-md-4 pt-lg-4 iq-rtl-direction" data-swiper="common-slider">
+                        <ul class="swiper-wrapper p-0 m-0 ">
+
+                            @foreach (var item in Model.upcomingMovies.results)
+                            {
+                            <li class="swiper-slide slide-item">
+                                <div class="block-images position-relative ">
+                                    <div class="img-box">
+                                        <img src="https://image.tmdb.org/t/p/original/@item.backdrop_path" class="img-fluid" alt="" loading="lazy">
+                                    </div>
+                                    <div class="block-description">
+                                        <h6 class="iq-title"><a asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@item.id">@item.title</a></h6>
+                                        <div class="movie-time d-flex align-items-center my-2">
+                                            <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left" >
+                                                @if (item.vote_average == 0) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else if (item.vote_average <= 1) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                    aria-hidden="true"></i></a></li>
+                                                }
+                                                @if (item.vote_average < 2) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else if (item.vote_average <= 3) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                    aria-hidden="true"></i></a></li>
+                                                }
+                                                @if (item.vote_average < 4) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else if (item.vote_average <= 5) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                    aria-hidden="true"></i></a></li>
+                                                }
+                                                @if (item.vote_average < 6) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else if (item.vote_average <= 7) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                    aria-hidden="true"></i></a></li>
+                                                }
+                                                @if (item.vote_average < 8) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else if (item.vote_average <= 9) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                    aria-hidden="true"></i></a></li>
+                                                }
+                                            </ul>
+                                            <span class="text-white pl-1">@item.vote_average/10 (IMDb)</span>
+                                        </div>
+                                        <div class="hover-buttons">
+                                            <a asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@item.id" role="button" class="btn btn-hover">
+                                                <i class="fa fa-info-circle mr-1" aria-hidden="true"></i>
+                                                Detail
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </li>
+                            }
+
+                        </ul>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="verticle-slider">
+            <div class="container-fluid">
+                <section class="slider">
+                    <div class="slider-flex position-relative">
+                        <div class="swiper-button-prev verticle-btn"></div>
+                        <h4 class="main-title ">Top 10 Rated Movies</h4>
+                        <div class="slider--col position-relative">
+                            <div class="slider-prev btn-verticle"><i class="ri-arrow-up-s-line vertical-aerrow"></i></div>
+                            <div class="slider-thumbs" data-swiper="slider-thumbs">
+                                <div class="swiper-container " data-swiper="slider-thumbs-inner">
+                                    <div class="swiper-wrapper top-ten-slider-nav">
+
+                                        @foreach (var item in Model.topRatedMovies.results)
+                                        {
+                                        <div class="swiper-slide swiper-bg">
+                                            <div class="block-images position-relative ">
+                                                <div class="img-box slider--image">
+                                                    <img src="https://image.tmdb.org/t/p/original/@item.backdrop_path" class="img-fluid" alt="" loading="lazy">
+                                                </div>
+                                                <div class="block-description">
+                                                    <h6 class="iq-title"><a asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@item.id">@item.title</a></h6>
+                                                    <div class="movie-time d-flex align-items-center my-2">
+                                                        <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left" >
+                                                            @if (item.vote_average == 0) {
+                                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                                aria-hidden="true"></i></a></li>
+                                                            } else if (item.vote_average <= 1) {
+                                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                                aria-hidden="true"></i></a></li>
+                                                            } else {
+                                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                                aria-hidden="true"></i></a></li>
+                                                            }
+                                                            @if (item.vote_average < 2) {
+                                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                                aria-hidden="true"></i></a></li>
+                                                            } else if (item.vote_average <= 3) {
+                                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                                aria-hidden="true"></i></a></li>
+                                                            } else {
+                                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                                aria-hidden="true"></i></a></li>
+                                                            }
+                                                            @if (item.vote_average < 4) {
+                                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                                aria-hidden="true"></i></a></li>
+                                                            } else if (item.vote_average <= 5) {
+                                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                                aria-hidden="true"></i></a></li>
+                                                            } else {
+                                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                                aria-hidden="true"></i></a></li>
+                                                            }
+                                                            @if (item.vote_average < 6) {
+                                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                                aria-hidden="true"></i></a></li>
+                                                            } else if (item.vote_average <= 7) {
+                                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                                aria-hidden="true"></i></a></li>
+                                                            } else {
+                                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                                aria-hidden="true"></i></a></li>
+                                                            }
+                                                            @if (item.vote_average < 8) {
+                                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                                aria-hidden="true"></i></a></li>
+                                                            } else if (item.vote_average <= 9) {
+                                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                                aria-hidden="true"></i></a></li>
+                                                            } else {
+                                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                                aria-hidden="true"></i></a></li>
+                                                            }
+                                                        </ul>
+                                                        <span class="text-white pl-1">@item.vote_average/10 (IMDb)</span>
+                                                    </div>
+                                                    <div class="hover-buttons">
+                                                        <a asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@item.id" role="button" class="btn btn-hover">
+                                                            <i class="fa fa-info-circle mr-1" aria-hidden="true"></i>
+                                                            Detail
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slider-next btn-verticle"><i class="ri-arrow-down-s-line vertical-aerrow"></i></div>
+                        </div>
+                        <div class="slider-images" data-swiper="slider-images">
+                        <div class="swiper-container " data-swiper="slider-images-inner">
+                            <div class="swiper-wrapper ">
+
+                                @foreach (var item in Model.topRatedMovies.results)
+                                {
+                                <div class="swiper-slide">
+                                    <div class="slider--image block-images"><img src="https://image.tmdb.org/t/p/original/@item.backdrop_path" loading="lazy" alt="" /></div>
+                                    <div class="description">
+                                    <div class="block-description">
+                                                <h6 class="iq-title"><a asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@item.id">@item.title</a></h6>
+                                        <div class="movie-time d-flex align-items-center my-2">
+                                            <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left" >
+                                                @if (item.vote_average == 0) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else if (item.vote_average <= 1) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                    aria-hidden="true"></i></a></li>
+                                                }
+                                                @if (item.vote_average < 2) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else if (item.vote_average <= 3) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                    aria-hidden="true"></i></a></li>
+                                                }
+                                                @if (item.vote_average < 4) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else if (item.vote_average <= 5) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                    aria-hidden="true"></i></a></li>
+                                                }
+                                                @if (item.vote_average < 6) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else if (item.vote_average <= 7) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                    aria-hidden="true"></i></a></li>
+                                                }
+                                                @if (item.vote_average < 8) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else if (item.vote_average <= 9) {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                    aria-hidden="true"></i></a></li>
+                                                } else {
+                                                    <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                    aria-hidden="true"></i></a></li>
+                                                }
+                                            </ul>
+                                            <span class="text-white pl-1">@item.vote_average/10 (IMDb)</span>
+                                        </div>
+                                        <div class="hover-buttons">
+                                                    <a asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@item.id" role="button" class="btn btn-hover">
+                                                <i class="fa fa-info-circle mr-1" aria-hidden="true"></i>
+                                                Detail
+                                            </a>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                }
+                            
+                            </div>
+                        </div>
+                        </div>
+                        <div class="swiper-button-prev verticle-btn"></div>
+                        <div class="swiper-button-next verticle-btn"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <section id="iq-suggestede" class="s-margin">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 overflow-hidden">
+                        <div class="d-flex align-items-center justify-content-between">
+                        <h4 class="main-title">Trending Movies</h4>
+                        <a href="view-all.html" class="text-primary iq-view-all">View All</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Swiper -->
+                <div class="favourite-slider">
+                    <div  class="swiper pt-2 pt-md-4 pt-lg-4 iq-rtl-direction" data-swiper="common-slider">
+                        <ul class="swiper-wrapper p-0 m-0">
+
+                        @foreach (var item in Model.trendingMovies.results)
+                        {
+                        <li class="swiper-slide slide-item">
+                            <div class="block-images position-relative">
+                                <div class="img-box">
+                                    <img src="https://image.tmdb.org/t/p/original/@item.backdrop_path" class="img-fluid" loading="lazy" alt="">
+                                </div>
+                                <div class="block-description">
+                                    <h6 class="iq-title"><a asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@item.id">@item.title</a></h6>
+                                    <div class="movie-time d-flex align-items-center my-2">
+                                        <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left" >
+                                            @if (item.vote_average == 0) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else if (item.vote_average <= 1) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                aria-hidden="true"></i></a></li>
+                                            }
+                                            @if (item.vote_average < 2) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else if (item.vote_average <= 3) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                aria-hidden="true"></i></a></li>
+                                            }
+                                            @if (item.vote_average < 4) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else if (item.vote_average <= 5) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                aria-hidden="true"></i></a></li>
+                                            }
+                                            @if (item.vote_average < 6) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else if (item.vote_average <= 7) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                aria-hidden="true"></i></a></li>
+                                            }
+                                            @if (item.vote_average < 8) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else if (item.vote_average <= 9) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                aria-hidden="true"></i></a></li>
+                                            }
+                                        </ul>
+                                        <span class="text-white pl-1">@item.vote_average/10 (IMDb)</span>
+                                    </div>
+                                    <div class="hover-buttons">
+                                        <a asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@item.id" role="button" class="btn btn-hover">
+                                    <i class="fa fa-info-circle mr-1" aria-hidden="true"></i>
+                                    Detail
+                                    </a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </li>
+                        }
+                        
+                        </ul>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="parallex" class="parallax-window" style="background-image:url('https://image.tmdb.org/t/p/original/@Model.popularMovies.results[0].backdrop_path')">
+            <div class="container-fluid h-100">
+                <div class="row align-items-center justify-content-center h-100 parallaxt-details">
+                    <div class="col-xl-5 col-lg-12 col-md-12 r-mb-23">
+                        <div class="text-left">
+                            <h1 class="big-title title text-uppercase"><b><i>@Model.popularMovies.results[0].title</i></b></h1>
+                            <div class="parallax-ratting d-flex align-items-center mt-3 mb-3">
+                                <ul
+                                    class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
+                                    @if (Model.popularMovies.results[0].vote_average == 0) {
+                                        <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                        aria-hidden="true"></i></a></li>
+                                    } else if (Model.popularMovies.results[0].vote_average <= 1) {
+                                        <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                        aria-hidden="true"></i></a></li>
+                                    } else {
+                                        <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                        aria-hidden="true"></i></a></li>
+                                    }
+                                    @if (Model.popularMovies.results[0].vote_average < 2) {
+                                        <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                        aria-hidden="true"></i></a></li>
+                                    } else if (Model.popularMovies.results[0].vote_average <= 3) {
+                                        <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                        aria-hidden="true"></i></a></li>
+                                    } else {
+                                        <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                        aria-hidden="true"></i></a></li>
+                                    }
+                                    @if (Model.popularMovies.results[0].vote_average < 4) {
+                                        <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                        aria-hidden="true"></i></a></li>
+                                    } else if (Model.popularMovies.results[0].vote_average <= 5) {
+                                        <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                        aria-hidden="true"></i></a></li>
+                                    } else {
+                                        <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                        aria-hidden="true"></i></a></li>
+                                    }
+                                    @if (Model.popularMovies.results[0].vote_average < 6) {
+                                        <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                        aria-hidden="true"></i></a></li>
+                                    } else if (Model.popularMovies.results[0].vote_average <= 7) {
+                                        <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                        aria-hidden="true"></i></a></li>
+                                    } else {
+                                        <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                        aria-hidden="true"></i></a></li>
+                                    }
+                                    @if (Model.popularMovies.results[0].vote_average < 8) {
+                                        <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                        aria-hidden="true"></i></a></li>
+                                    } else if (Model.popularMovies.results[0].vote_average <= 9) {
+                                        <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                        aria-hidden="true"></i></a></li>
+                                    } else {
+                                        <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                        aria-hidden="true"></i></a></li>
+                                    }
+                                </ul>
+                                <span class="text-white pl-2">@Model.popularMovies.results[0].vote_average/10 (IMDb)</span>
+                            </div>
+                            <div class="movie-time d-flex align-items-center mb-3 iq-ltr-direction">
+                                @if (Model.popularMovies.results[0].adult == true)
+                                {
+                                    <span class="badge badge-secondary p-2">NC-17</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-success  p-2">PG-13</span>
+                                }
+                                <span class="ml-3">Popularity : @Model.popularMovies.results[0].popularity</span>
+                            </div>
+                            <h4 class="iq-title mb-2">
+                                Movie you must watch!
+                            </h4>
+                            <p class="iq-title-desc mb-5">
+                                @Model.popularMovies.results[0].overview
+                            </p>
+                            <div class="parallax-buttons">
+                        <a asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@Model.popularMovies.results[0].id" class="btn btn-hover">
+                            <i class="fa fa-info-circle mr-2"
+                                    aria-hidden="true"></i>Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 col-lg-12 col-md-12 mt-5 mt-xl-0">
+                        <div class="parallax-img">
+                        <a asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@Model.popularMovies.results[0].id">
+                        <img src="https://image.tmdb.org/t/p/original/@Model.popularMovies.results[0].backdrop_path" class="img-fluid w-100" loading="lazy" alt="bailey">
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+</div>

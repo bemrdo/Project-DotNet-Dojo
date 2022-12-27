@@ -1,0 +1,843 @@
+﻿@model MoviesDetailModel
+@{
+    ViewData["Title"] = "Avatar";
+}
+
+<!-- Banner Start -->
+   <section class="iq-main-slider site-video">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-lg-12">
+               <div class="pt-0">
+                   @if (Model.movieTrailer.FirstOrDefault(x => x.Key == Model.id).Value != null) {
+                       <iframe width="100%" height="820" src="@Model.movieTrailer.FirstOrDefault(x => x.Key == Model.id).Value" frameborder="0" allowfullscreen></iframe>
+                   }
+               </div>
+
+            </div>
+         </div>
+      </div>
+   </section>
+   <!-- Banner End -->
+   <!-- MainContent -->
+   <div class="main-content movi ">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-lg-12">
+               <div class="trending-info mt-4 pt-0 pb-4">
+                  <div class="row">
+                     <div class="col-md-9 col-12  mb-auto">
+                        <div class="d-md-flex">
+                           <h3 class="trending-text big-title text-uppercase mt-0 fadeInLeft animated"
+                              data-animation-in="fadeInLeft" data-delay-in="0.6"
+                              style="opacity: 1; animation-delay: 0.6s">@Model.moviesDetail.title
+                           </h3>
+                           <div class="slider-ratting d-flex align-items-center ml-md-3 ml-0">
+                              <ul
+                                 class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
+                                @if (Model.moviesDetail.vote_average == 0)
+                                {
+                                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                }
+                                else if (Model.moviesDetail.vote_average <= 1)
+                                {
+                                    <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
+                                }
+                                else
+                                {
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                }
+                                @if (Model.moviesDetail.vote_average < 2)
+                                {
+                                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                }
+                                else if (Model.moviesDetail.vote_average <= 3)
+                                {
+                                    <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
+                                }
+                                else
+                                {
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                }
+                                @if (Model.moviesDetail.vote_average < 4)
+                                {
+                                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                }
+                                else if (Model.moviesDetail.vote_average <= 5)
+                                {
+                                    <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
+                                }
+                                else
+                                {
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                }
+                                @if (Model.moviesDetail.vote_average < 6)
+                                {
+                                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                }
+                                else if (Model.moviesDetail.vote_average <= 7)
+                                {
+                                    <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
+                                }
+                                else
+                                {
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                }
+                                @if (Model.moviesDetail.vote_average < 8)
+                                {
+                                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                }
+                                else if (Model.moviesDetail.vote_average <= 9)
+                                {
+                                    <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
+                                }
+                                else
+                                {
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                }
+                              </ul>
+                              <span class="text-white ml-2">@Model.moviesDetail.vote_average/10 (IMDb)</span>
+                           </div>
+                        </div>
+                        <div class="d-flex flex-wrap align-items-center text-white text-detail flex-wrap mb-4">
+                            @if (Model.moviesDetail.adult == true)
+                            {
+                                <span class="badge badge-secondary font-size-16">NC-17</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-success font-size-16">PG-13</span>
+                            }
+                                <span class="ml-3 font-Weight-500 genres-info">@Math.Round((decimal)Model.moviesDetail.runtime/60)hr : @Math.Round((decimal)Model.moviesDetail.runtime%60)mins</span>
+                                <span class="trending-year trending-year-list font-Weight-500 genres-info">
+                                    @Convert.ToDateTime(Model.moviesDetail.release_date).ToString("dd MMM yyyy")
+                           </span>
+                           <span
+                              class="trending-year trending-year-list single-view-count font-Weight-500 genres-info"><i
+                                 class="fa fa-eye mr-2"></i>@Math.Round(Model.moviesDetail.popularity) views</span>
+                        </div>
+                        
+                        <ul class="p-0 list-inline d-flex flex-wrap align-items-center mb-3 mt-4 iq_tag-list">
+                           <li class="text-primary text-lable mr-3"><i class="fa fa-tags" aria-hidden="true"></i>Genres : </li>
+                            @foreach (var genre in Model.moviesDetail.genres)
+                            {
+                                <li class="trending-list mr-3"><a class="title" href="tags/brother.html">
+                                    @genre.name
+                                    @if (genre != Model.moviesDetail.genres.Last())
+                                    {
+                                        <span>, </span>
+                                    }
+                                </a></li>
+                            }
+                        </ul>
+                     </div>
+                     
+                  </div>
+               </div>
+               <div class="streamit-content-details trending-info g-border iq-rtl-direction">
+                  <ul class="trending-pills-header d-flex nav nav-pills align-items-center text-center  mb-5 justify-content-center"
+                     role="tablist">
+                     <li class="nav-item">
+                        <a class="nav-link active show" data-toggle="pill" href="#dectripton-1" role="tab"
+                           aria-selected="true">Description</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#reviw-1" role="tab" aria-selected="false">Rate
+                           &amp; Review</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#sourse-1" role="tab"
+                           aria-selected="false">Sources</a>
+                     </li>
+                  </ul>
+                  <div class="tab-content">
+                     <div id="dectripton-1" class="tab-pane fade active show" role="tabpanel">
+                        <div class="description-content">
+                           <p>
+                               @Model.moviesDetail.overview
+                           </p>
+                        </div>
+                     </div>
+                     <div id="reviw-1" class="tab-pane fade" role="tabpanel">
+                        <div id="reviews" class="streamit-reviews">
+                           <div id="comments" class="comments-area validate-form">
+                              <p class="masvideos-noreviews mt-3">
+                                 There are no reviews yet.
+                              </p>
+                           </div>
+                           <div id="review_form_wrapper">
+                              <div id="review_form">
+                                 <div id="respond" class="comment-respond">
+                                    <h3 id="reply-title" class="comment-reply-title mt-0">
+                                       Be the first to review “@Model.moviesDetail.title”
+                                    </h3>
+                                    <form class="comment-form">
+                                       <p class="comment-notes">
+                                          <span id="email-notes">Your email address will not be published.</span>
+                                          <span class="required-field-message" aria-hidden="true">Required fields are
+                                             marked
+                                             <span class="required" aria-hidden="true">*</span></span>
+                                       </p>
+                                       <div class="comment-form-rating">
+                                          <label for="rating">Your rating</label>
+                                          <div class="star ml-3">
+                                             <span><i class="ri-star-line"></i></span>
+                                             <span><i class="ri-star-line"></i></span>
+                                             <span><i class="ri-star-line"></i></span>
+                                             <span><i class="ri-star-line"></i></span>
+                                             <span><i class="ri-star-line"></i></span>
+                                          </div>
+                                       </div>
+                                       <p class="comment-form-comment p-0 mb-3 mt-0">
+                                          <label for="comment">Your review&nbsp;<span
+                                                class="required">*</span></label><textarea id="comment" name="comment"
+                                             cols="45" rows="8" required=""></textarea>
+                                       </p>
+                                       <p class="comment-form-author mt-3 pr-lg-3 pr-0">
+                                          <label for="author">Name&nbsp;<span class="required">*</span></label>
+                                          <input id="author" name="author" type="text" value="" size="30" required="" />
+                                       </p>
+                                       <p class="comment-form-email mt-3 pl-lg-3 pl-0">
+                                          <label for="email">Email&nbsp;<span class="required">*</span></label>
+                                          <input id="email" name="email" type="email" value="" size="30" required="" />
+                                       </p>
+                                       <p class="comment-form-cookies-consent">
+                                          <input id="coment-check" name="coment-check" type="checkbox" value="yes" />
+                                          <label for="coment-check">Save my name, email, and website in this browser for
+                                             the next time I comment.</label>
+                                       </p>
+                                       <p class="form-submit">
+                                          <button name="submit" type="submit" id="submit"
+                                             class="btn btn-hover iq-button" value="Submit">
+                                             <span><i class="ri-play-fill"></i>Submit</span>
+                                          </button>
+                                       </p>
+                                    </form>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="clear"></div>
+                        </div>
+                     </div>
+                     <div id="sourse-1" class="tab-pane fade" role="tabpanel">
+                        <div class="source-list-content">
+                           <table class="movie-sources sources-table">
+                              <thead class="trending-pills">
+                                 <tr>
+                                    <th class="genres-table-heading">Links</th>
+                                    <th class="genres-table-heading">Quality</th>
+                                    <th class="genres-table-heading">Language</th>
+                                    <th class="genres-table-heading">Player</th>
+                                    <th class="genres-table-heading">Date Added</th>
+                                 </tr>
+                              </thead>
+                              <tbody class="trending-pills">
+                                 <tr>
+                                    <td>
+                                       <a href="movie-details.html"
+                                          class="play-source movie-play-source btn-hover iq-button"><i
+                                             class="ri-play-fill"></i>
+                                          Play Now
+                                       </a>
+                                    </td>
+                                    <td>1080p</td>
+                                    <td>english</td>
+                                    <td>MediaMonkey</td>
+                                    <td>2022-12-22</td>
+                                 </tr>
+                                 <tr>
+                                    <td>
+                                       <a href="movie-details.html"
+                                          class="play-source movie-play-source btn-hover iq-button"><i
+                                             class="ri-play-fill"></i>
+                                          Play Now
+                                       </a>
+                                    </td>
+                                    <td>800p</td>
+                                    <td>english</td>
+                                    <td>MusicBee</td>
+                                    <td>2022-12-21</td>
+                                 </tr>
+                                 <tr>
+                                    <td>
+                                       <a href="movie-details.html"
+                                          class="play-source movie-play-source btn-hover iq-button"><i
+                                             class="ri-play-fill"></i>
+                                          Play Now
+                                       </a>
+                                    </td>
+                                    <td>720p</td>
+                                    <td>english</td>
+                                    <td>PotPlayer</td>
+                                    <td>2022-12-18</td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="iq-favorites" class="s-margin detail-cast-list iq-rtl-direction starring">
+         <div class="container-fluid">
+            <div class="row m-0">
+               <div class="col-sm-12 overflow-hidden p-0">
+                  <div class="iq-main-header d-flex align-items-center justify-content-between iq-ltr-direction">
+                        <h4 class="main-title">Starring</h4>
+                  </div>
+               </div>
+            </div>  
+            <ul class="inner-slider list-inline row p-0  iq-ltr-direction">
+               <li class=" slide-item iq-ltr-direction col-xl-3 col-lg-4 col-md-4 col-6">
+                  <div class="cast-images position-relative row mx-0">
+                        <div class="col-sm-4 col-12 img-box p-0">
+                           <img src="~/images/genre/43.jpg" class="person__poster--image img-fluid" alt="image" loading="lazy">
+                        </div>
+                        <div class="col-sm-8 col-12 block-description starring-desc ">
+                           <h6 class="iq-title">
+                              <a href="cast-karen-gilchrist.html" tabindex="0">
+                                 Karen Gilchrist </a>
+                           </h6>
+                           <div class="video-time d-flex align-items-center my-2">
+                              <span class="text-white">As James</span>
+                           </div>
+                        </div>
+                  </div>
+               </li>
+               <li class=" slide-item iq-ltr-direction col-xl-3 col-lg-4 col-md-4 col-6">
+                  <div class="cast-images position-relative row mx-0">
+                        <div class="col-sm-4 col-12 img-box p-0">
+                           <img src="~/images/genre/42.jpg" class="person__poster--image" alt="image" loading="lazy">
+                        </div>
+                        <div class="col-sm-8 col-12 block-description starring-desc ">
+                           <h6 class="iq-title">
+                              <a href="cast-james-jones.html" tabindex="0">
+                                    James Chinlund </a>
+                           </h6>
+                           <div class="video-time d-flex align-items-center my-2">
+                              <span class="text-white">As James</span>
+                           </div>
+                        </div>
+                  </div>
+
+               </li>
+            </ul>
+      </div>
+   </div>
+   <section class="s-margin iq-rtl-direction">
+      <div class="container-fluid">
+      <div class="row">
+          <div class="col-sm-12 overflow-hidden">
+              <div class="d-flex align-items-center justify-content-between">
+                  <h4 class="main-title ">Recommended </h4>
+              </div>
+          </div>
+      </div>
+      <!-- Swiper -->
+      <div class="favourite-slider">
+          <div  class="swiper pt-2 pt-md-4 pt-lg-4 iq-rtl-direction" data-swiper="common-slider">
+              <ul class="swiper-wrapper m-0 p-0">
+                  <li class="swiper-slide slide-item">
+                      <div class="block-images position-relative ">
+                          <div class="img-box">
+                              <img src="~/images/video/01.jpg" class="img-fluid" alt="" loading="lazy">
+                          </div>
+                          <div class="block-description">
+                              <h6 class="iq-title"><a href="tag-details.html">Shadow Warrior</a></h6>
+                              <div class="movie-time d-flex align-items-center my-2">
+                                  <span class="text-white">1hr : 50mins</span>
+                              </div>
+                              <div class="hover-buttons">
+                                  <a href="tag-details.html" role="button" class="btn btn-hover"><i
+                                      class="fa fa-play mr-1" aria-hidden="true"></i>
+                                  Play Now
+                                  </a>
+                              </div>
+                          </div>
+                          <div class="block-social-info">
+                              <ul class="list-inline p-0 m-0 music-play-lists">
+                                  <li class="share">
+                                  <span><i class="ri-share-fill"></i></span>
+                                  <div class="share-box">
+                                      <div class="d-flex align-items-center">
+                                          <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                              target="_blank" rel="noopener noreferrer" class="share-ico" tabindex="0"><i
+                                              class="ri-facebook-fill"></i></a>
+                                          <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                              target="_blank" rel="noopener noreferrer" class="share-ico" tabindex="0"><i
+                                              class="ri-twitter-fill"></i></a>
+                                          <a href="#"
+                                              data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                              class="share-ico iq-copy-link" tabindex="0"><i
+                                              class="ri-links-fill"></i></a>
+                                      </div>
+                                  </div>
+                                  </li>
+                                  <li>
+                                  <span><i class="ri-heart-fill"></i></span>
+                                  <span class="count-box">2+</span>
+                                  </li>
+                                  <li><span><i class="ri-add-line"></i></span></li>
+
+                              </ul>
+                          </div>
+                      </div>
+                  </li>
+                  <li class="swiper-slide  slide-item">
+                      <div class="block-images position-relative ">
+                          <div class="img-box">
+                          <img src="~/images/video/02.jpg" class="img-fluid" alt="" loading="lazy">
+                          </div>
+                          <div class="block-description">
+                          <h6 class="iq-title"><a href="tag-details.html">Narnia</a></h6>
+                          <div class="movie-time d-flex align-items-center my-2">
+                              <span class="text-white">3hr : 10mins</span>
+                          </div>
+                          <div class="hover-buttons">
+                              <a href="tag-details.html" role="button" class="btn btn-hover">
+                                  <i class="fa fa-play mr-1" aria-hidden="true"></i>
+                                  Play Now
+                              </a>
+                          </div>
+                          </div>
+                          <div class="block-social-info">
+                          <ul class="list-inline p-0 m-0 music-play-lists">
+                              <li class="share">
+                                  <span><i class="ri-share-fill"></i></span>
+                                  <div class="share-box">
+                                      <div class="d-flex align-items-center">
+                                      <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                          target="_blank" rel="noopener noreferrer" class="share-ico" tabindex="0"><i
+                                              class="ri-facebook-fill"></i></a>
+                                      <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                          target="_blank" rel="noopener noreferrer" class="share-ico" tabindex="0"><i
+                                              class="ri-twitter-fill"></i></a>
+                                      <a href="#"
+                                          data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                          class="share-ico iq-copy-link" tabindex="0"><i
+                                              class="ri-links-fill"></i></a>
+                                      </div>
+                                  </div>
+                              </li>
+                              <li>
+                                  <span><i class="ri-heart-fill"></i></span>
+                                  <span class="count-box">0</span>
+                              </li>
+                              <li><span><i class="ri-add-line"></i></span></li>
+
+                          </ul>
+                          </div>
+                      </div>
+                  </li>
+                  <li class="swiper-slide slide-item">
+                      <div class="block-images position-relative">
+                          <div class="img-box">
+                              <img src="~/images/genre/08.jpg" class="img-fluid" alt="" loading="lazy">
+                          </div>
+                          <div class="block-description">
+                              <h6 class="iq-title"><a href="#">Worst Vampire</a></h6>
+                              <div class="video-time d-flex align-items-center my-2">
+                                  <span class="text-white">2hr : 48mins</span>
+                              </div>
+                              <div class="hover-buttons">
+                                  <a href="movie-details.html" role="button" class="btn btn-hover">
+                                      <i class="fa fa-play mr-1" aria-hidden="true"></i>
+                                      Play Now
+                                  </a>
+                              </div>
+                          </div>
+                          <div class="block-social-info">
+                              <ul class="list-inline p-0 m-0 music-play-lists">
+                                  <li class="share">
+                                      <span><i class="ri-share-fill"></i></span>
+                                      <div class="share-box">
+                                          <div class="d-flex align-items-center">
+                                              <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                  target="_blank" rel="noopener noreferrer"
+                                                  class="share-ico" tabindex="0"><i
+                                                      class="ri-facebook-fill"></i></a>
+                                              <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                  target="_blank" rel="noopener noreferrer"
+                                                  class="share-ico" tabindex="0"><i
+                                                      class="ri-twitter-fill"></i></a>
+                                              <a href="#"
+                                                  data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                  class="share-ico iq-copy-link" tabindex="0"><i
+                                                      class="ri-links-fill"></i></a>
+                                          </div>
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <span><i class="ri-heart-fill"></i></span>
+                                      <span class="count-box">19+</span>
+                                  </li>
+                                  <li><span><i class="ri-add-line"></i></span></li>
+
+                              </ul>
+                          </div>
+                      </div>
+                  </li>
+                  <li class="swiper-slide slide-item">
+                  <div class="block-images position-relative">
+                      <div class="img-box">
+                          <img src="~/images/video/04.jpg" class="img-fluid" alt="" loading="lazy">
+                      </div>
+                      <div class="block-description">
+                          <h6 class="iq-title"><a href="tag-details.html">Logan</a></h6>
+                          <div class="movie-time d-flex align-items-center my-2">
+                              <span class="text-white">1hr : 22mins</span>
+                          </div>
+                          <div class="hover-buttons">
+                              <a href="tag-details.html" role="button" class="btn btn-hover">
+                              <i class="fa fa-play mr-1" aria-hidden="true"></i>
+                              Play Now
+                              </a>
+                          </div>
+                      </div>
+                      <div class="block-social-info">
+                          <ul class="list-inline p-0 m-0 music-play-lists">
+                              <li class="share">
+                              <span><i class="ri-share-fill"></i></span>
+                              <div class="share-box">
+                                  <div class="d-flex align-items-center">
+                                      <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                          target="_blank" rel="noopener noreferrer" class="share-ico" tabindex="0"><i
+                                          class="ri-facebook-fill"></i></a>
+                                      <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                          target="_blank" rel="noopener noreferrer" class="share-ico" tabindex="0"><i
+                                          class="ri-twitter-fill"></i></a>
+                                      <a href="#"
+                                          data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                          class="share-ico iq-copy-link" tabindex="0"><i
+                                          class="ri-links-fill"></i></a>
+                                  </div>
+                              </div>
+                              </li>
+                              <li>
+                              <span><i class="ri-heart-fill"></i></span>
+                              <span class="count-box">0</span>
+                              </li>
+                              <li><span><i class="ri-add-line"></i></span></li>
+
+                          </ul>
+                      </div>
+                  </div>
+                  </li>
+                  <li class="swiper-slide slide-item">
+                      <div class="block-images position-relative">
+                          <div class="img-box">
+                              <img src="~/images/genre/13.jpg" class="img-fluid" alt="" loading="lazy">
+                          </div>
+                          <div class="block-description">
+                              <h6 class="iq-title"><a href="#">The Illusion</a></h6>
+                              <div class="video-time d-flex align-items-center my-2">
+                                  <span class="text-white">1hr : 22mins</span>
+                              </div>
+                              <div class="hover-buttons">
+                                  <a href="movie-details.html" role="button" class="btn btn-hover">
+                                      <i class="fa fa-play mr-1" aria-hidden="true"></i>
+                                      Play Now
+                                  </a>
+                              </div>
+                          </div>
+                          <div class="block-social-info">
+                              <ul class="list-inline p-0 m-0 music-play-lists">
+                                  <li class="share">
+                                      <span><i class="ri-share-fill"></i></span>
+                                      <div class="share-box">
+                                          <div class="d-flex align-items-center">
+                                              <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                  target="_blank" rel="noopener noreferrer"
+                                                  class="share-ico" tabindex="0"><i
+                                                      class="ri-facebook-fill"></i></a>
+                                              <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                  target="_blank" rel="noopener noreferrer"
+                                                  class="share-ico" tabindex="0"><i
+                                                      class="ri-twitter-fill"></i></a>
+                                              <a href="#"
+                                                  data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                  class="share-ico iq-copy-link" tabindex="0"><i
+                                                      class="ri-links-fill"></i></a>
+                                          </div>
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <span><i class="ri-heart-fill"></i></span>
+                                      <span class="count-box">19+</span>
+                                  </li>
+                                  <li><span><i class="ri-add-line"></i></span></li>
+
+                              </ul>
+                          </div>
+                      </div>
+                  </li>
+              </ul>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+          </div>
+      </div>
+      </div>
+  </section>
+   <section class="iq-rtl-direction">
+      <div class="container-fluid">
+      <div class="row">
+          <div class="col-sm-12 overflow-hidden">
+              <div class="d-flex align-items-center justify-content-between">
+                  <h4 class="main-title">Related Movies</h4>
+              </div>
+          </div>
+      </div>
+      <!-- Swiper -->
+      <div class="favourite-slider">
+          <div  class="swiper pt-2 pt-md-4 pt-lg-4 iq-rtl-direction" data-swiper="common-slider">
+              <ul class="swiper-wrapper m-0 p-0">
+                  <li class="swiper-slide slide-item">
+                      <div class="block-images position-relative">
+                          <div class="img-box">
+                              <img src="~/images/genre/08.jpg" class="img-fluid" alt="" loading="lazy">
+                          </div>
+                          <div class="block-description">
+                              <h6 class="iq-title"><a href="tag-details.html">Black Pearl</a></h6>
+                              <div class="movie-time d-flex align-items-center my-2">
+                                  <span class="text-white">2hr : 52mins</span>
+                              </div>
+                              <div class="hover-buttons">
+                                  <a href="tag-details.html" role="button" class="btn btn-hover"><i
+                                          class="fa fa-play mr-1" aria-hidden="true"></i>
+                                      Play Now
+                                  </a>
+                              </div>
+                          </div>
+                          <div class="block-social-info">
+                              <ul class="list-inline p-0 m-0 music-play-lists">
+                                  <li class="share">
+                                      <span><i class="ri-share-fill"></i></span>
+                                      <div class="share-box">
+                                          <div class="d-flex align-items-center">
+                                              <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                  target="_blank" rel="noopener noreferrer"
+                                                  class="share-ico" tabindex="0"><i
+                                                      class="ri-facebook-fill"></i></a>
+                                              <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                  target="_blank" rel="noopener noreferrer"
+                                                  class="share-ico" tabindex="0"><i
+                                                      class="ri-twitter-fill"></i></a>
+                                              <a href="#"
+                                                  data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                  class="share-ico iq-copy-link" tabindex="0"><i
+                                                      class="ri-links-fill"></i></a>
+                                          </div>
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <span><i class="ri-heart-fill"></i></span>
+                                      <span class="count-box">19+</span>
+                                  </li>
+                                  <li><span><i class="ri-add-line"></i></span></li>
+
+                              </ul>
+                          </div>
+                      </div>
+                  </li>
+                  <li class="swiper-slide  slide-item">
+                      <div class="block-images position-relative">
+                          <div class="img-box">
+                              <img src="~/images/genre/33.jpg" class="img-fluid" alt="" loading="lazy">
+                          </div>
+                          <div class="block-description">
+                              <h6 class="iq-title"><a href="tag-details.html">One Man Army</a></h6>
+                              <div class="movie-time d-flex align-items-center my-2">
+                                  <span class="text-white">2hr : 48mins</span>
+                              </div>
+                              <div class="hover-buttons">
+                                  <a href="tag-details.html" role="button" class="btn btn-hover">
+                                      <i class="fa fa-play mr-1" aria-hidden="true"></i>
+                                      Play Now
+                                  </a>
+                              </div>
+                          </div>
+                          <div class="block-social-info">
+                              <ul class="list-inline p-0 m-0 music-play-lists">
+                                  <li class="share">
+                                      <span><i class="ri-share-fill"></i></span>
+                                      <div class="share-box">
+                                          <div class="d-flex align-items-center">
+                                              <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                  target="_blank" rel="noopener noreferrer"
+                                                  class="share-ico" tabindex="0"><i
+                                                      class="ri-facebook-fill"></i></a>
+                                              <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                  target="_blank" rel="noopener noreferrer"
+                                                  class="share-ico" tabindex="0"><i
+                                                      class="ri-twitter-fill"></i></a>
+                                              <a href="#"
+                                                  data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                  class="share-ico iq-copy-link" tabindex="0"><i
+                                                      class="ri-links-fill"></i></a>
+                                          </div>
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <span><i class="ri-heart-fill"></i></span>
+                                      <span class="count-box">19+</span>
+                                  </li>
+                                  <li><span><i class="ri-add-line"></i></span></li>
+
+                              </ul>
+                          </div>
+                      </div>
+                  </li>
+                  <li class="swiper-slide slide-item">
+                      <div class="block-images position-relative">
+                          <div class="img-box">
+                              <img src="~/images/genre/15.jpg" class="img-fluid" alt="" loading="lazy">
+                          </div>
+                          <div class="block-description">
+                              <h6 class="iq-title"><a href="tag-details.html">Another Danger</a></h6>
+                              <div class="movie-time d-flex align-items-center my-2">
+                                  <span class="text-white">1hr : 48mins</span>
+                              </div>
+                              <div class="hover-buttons">
+                                  <a href="tag-details.html" role="button" class="btn btn-hover">
+                                      <i class="fa fa-play mr-1" aria-hidden="true"></i>
+                                      Play Now
+                                  </a>
+                              </div>
+                          </div>
+                          <div class="block-social-info">
+                              <ul class="list-inline p-0 m-0 music-play-lists">
+                                  <li class="share">
+                                      <span><i class="ri-share-fill"></i></span>
+                                      <div class="share-box">
+                                          <div class="d-flex align-items-center">
+                                              <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                  target="_blank" rel="noopener noreferrer"
+                                                  class="share-ico" tabindex="0"><i
+                                                      class="ri-facebook-fill"></i></a>
+                                              <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                  target="_blank" rel="noopener noreferrer"
+                                                  class="share-ico" tabindex="0"><i
+                                                      class="ri-twitter-fill"></i></a>
+                                              <a href="#"
+                                                  data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                  class="share-ico iq-copy-link" tabindex="0"><i
+                                                      class="ri-links-fill"></i></a>
+                                          </div>
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <span><i class="ri-heart-fill"></i></span>
+                                      <span class="count-box">19+</span>
+                                  </li>
+                                  <li><span><i class="ri-add-line"></i></span></li>
+
+                              </ul>
+                          </div>
+                      </div>
+                  </li>
+                  <li class="swiper-slide slide-item">
+                      <div class="block-images position-relative">
+                          <div class="img-box">
+                              <img src="~/images/genre/27.jpg" class="img-fluid" alt="" loading="lazy">
+                          </div>
+                          <div class="block-description">
+                              <h6 class="iq-title"><a href="tag-details.html">The Great Emperor</a></h6>
+                              <div class="movie-time d-flex align-items-center my-2">
+                                  <span class="text-white">1hr : 22mins</span>
+                              </div>
+                              <div class="hover-buttons">
+                                  <a href="tag-details.html" role="button" class="btn btn-hover">
+                                      <i class="fa fa-play mr-1" aria-hidden="true"></i>
+                                      Play Now
+                                  </a>
+                              </div>
+                          </div>
+                          <div class="block-social-info">
+                              <ul class="list-inline p-0 m-0 music-play-lists">
+                                  <li class="share">
+                                      <span><i class="ri-share-fill"></i></span>
+                                      <div class="share-box">
+                                          <div class="d-flex align-items-center">
+                                              <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                  target="_blank" rel="noopener noreferrer"
+                                                  class="share-ico" tabindex="0"><i
+                                                      class="ri-facebook-fill"></i></a>
+                                              <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                  target="_blank" rel="noopener noreferrer"
+                                                  class="share-ico" tabindex="0"><i
+                                                      class="ri-twitter-fill"></i></a>
+                                              <a href="#"
+                                                  data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                  class="share-ico iq-copy-link" tabindex="0"><i
+                                                      class="ri-links-fill"></i></a>
+                                          </div>
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <span><i class="ri-heart-fill"></i></span>
+                                      <span class="count-box">19+</span>
+                                  </li>
+                                  <li><span><i class="ri-add-line"></i></span></li>
+
+                              </ul>
+                          </div>
+                      </div>
+                  </li>
+                  <li class="swiper-slide slide-item">
+                      <div class="block-images position-relative">
+                          <div class="img-box">
+                              <img src="~/images/genre/31.jpg" class="img-fluid" alt="" loading="lazy">
+                          </div>
+                          <div class="block-description">
+                              <h6 class="iq-title"><a href="tag-details.html">The Great Emperor</a></h6>
+                              <div class="movie-time d-flex align-items-center my-2">
+                                  <div class="badge badge-secondary p-1 mr-2">9+</div>
+                                  <span class="text-white">2hr : 38mins</span>
+                              </div>
+                              <div class="hover-buttons">
+                                  <a href="tag-details.html" role="button" class="btn btn-hover">
+                                      <i class="fa fa-play mr-1" aria-hidden="true"></i>
+                                      Play Now
+                                  </a>
+                              </div>
+                          </div>
+                          <div class="block-social-info">
+                              <ul class="list-inline p-0 m-0 music-play-lists">
+                                  <li class="share">
+                                      <span><i class="ri-share-fill"></i></span>
+                                      <div class="share-box">
+                                          <div class="d-flex align-items-center">
+                                              <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                  target="_blank" rel="noopener noreferrer"
+                                                  class="share-ico" tabindex="0"><i
+                                                      class="ri-facebook-fill"></i></a>
+                                              <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                  target="_blank" rel="noopener noreferrer"
+                                                  class="share-ico" tabindex="0"><i
+                                                      class="ri-twitter-fill"></i></a>
+                                              <a href="#"
+                                                  data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                  class="share-ico iq-copy-link" tabindex="0"><i
+                                                      class="ri-links-fill"></i></a>
+                                          </div>
+                                      </div>
+                                  </li>
+                                  <li>
+                                      <span><i class="ri-heart-fill"></i></span>
+                                      <span class="count-box">19+</span>
+                                  </li>
+                                  <li><span><i class="ri-add-line"></i></span></li>
+
+                              </ul>
+                          </div>
+                      </div>
+                  </li>
+              </ul>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+          </div>
+      </div>
+      </div>
+   </div>

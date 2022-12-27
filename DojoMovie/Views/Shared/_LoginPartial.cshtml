@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <li>
+        <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center">
+            @if (UserManager.GetUserAsync(User).Result.ProfilePicture != null)
+            {
+                <img class="img-fluid avatar-40 rounded-circle" loading="lazy" alt="user" 
+                src="data:image/*;base64,@(Convert.ToBase64String(UserManager.GetUserAsync(User).Result.ProfilePicture))">
+            }
+            else
+            {
+                <img src="~/images/user/user.jpg" class="img-fluid avatar-40 rounded-circle" loading="lazy" alt="user">
+            }
+            <span class="pl-2">Hello @UserManager.GetUserAsync(User).Result.Name!</span>
+        </a>
+        <div class="iq-sub-dropdown iq-user-dropdown">
+            <div class="iq-card shadow-none m-0">
+                <div class="iq-card-body p-0 pl-3 pr-3">
+                    <a asp-area ="Identity" asp-page="/Account/Manage/Index" class="iq-sub-card setting-dropdown">
+                        <div class="media align-items-center">
+                            <div class="right-icon">
+                                <i class="ri-file-user-line text-primary"></i>
+                            </div>
+                            <div class="media-body ml-3">
+                                <h6 class="mb-0 ">Manage Profile</h6>
+                            </div>
+                        </div>
+                    </a>
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button type="submit" class="iq-sub-card setting-dropdown bg-transparent">
+                            <div class="media align-items-center">
+                                <div class="right-icon">
+                                    <i class="ri-logout-circle-line text-primary"></i>
+                                </div>
+                                <div class="media-body ml-3">
+                                    <h6 class="mb-0">Log out</h6>
+                                </div>
+                            </div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </li>
+}
+else
+{
+    <li>
+        <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-hover">Log in</a>
+    </li>
+    <li>
+        <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-hover">Register</a>
+    </li>
+}

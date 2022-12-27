@@ -1,0 +1,670 @@
+﻿@model MoviesModel
+@{
+    ViewData["Title"] = "Movies Page";
+}
+
+<!-- Slider Start -->
+<section class="banner-container">
+    <div class="movie-banner tvshows-slider">
+        <div class="swiper-banner-container iq-rtl-direction" data-swiper="banner-detail-slider">
+            <div class="swiper-wrapper">
+                @foreach (var item in Model.discoveryMovies.results)
+                {
+                    <div class="swiper-slide movie-banner-1 swiper-bg" style="background-image:url('https://image.tmdb.org/t/p/original/@item.backdrop_path')">
+                    <div class="shows-content h-100">
+                        <div class="row align-items-center h-100">
+                            <div class="col-lg-7 col-md-12">
+                                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft"
+                                    data-delay-in="0.6">
+                                    @item.title
+                                </h1>
+                                <div class="flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft"
+                                     style="opacity: 1;">
+                                    <div class="slider-ratting d-flex align-items-center ">
+                                        <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
+                                            @if (item.vote_average == 0) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else if (item.vote_average <= 1) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                aria-hidden="true"></i></a></li>
+                                            }
+                                            @if (item.vote_average < 2) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else if (item.vote_average <= 3) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                aria-hidden="true"></i></a></li>
+                                            }
+                                            @if (item.vote_average < 4) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else if (item.vote_average <= 5) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                aria-hidden="true"></i></a></li>
+                                            }
+                                            @if (item.vote_average < 6) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else if (item.vote_average <= 7) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                aria-hidden="true"></i></a></li>
+                                            }
+                                            @if (item.vote_average < 8) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else if (item.vote_average <= 9) {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star-half-o"
+                                                aria-hidden="true"></i></a></li>
+                                            } else {
+                                                <li><a href="javascript:void(0);" class="text-primary"><i class="fa fa-star"
+                                                aria-hidden="true"></i></a></li>
+                                            }
+                                        </ul>
+                                        <span class="text-white ml-2">@item.vote_average/10 (IMDb)</span>
+                                    </div>
+                                    <div class="d-flex align-items-center movie-banner-time">
+                                        @if (item.adult == true)
+                                        {
+                                            <span class="badge badge-secondary p-2">NC-17</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-success p-2">PG-13</span>
+                                        }
+                                        <span class="mx-2 mx-md-3"><i class="ri-checkbox-blank-circle-fill"></i></span>
+                                        <span class="trending-year">@item.release_date</span>
+                                        <span class="mx-2 mx-md-3"><i class="ri-checkbox-blank-circle-fill"></i></span>
+                                        <span class="text-body">
+                                            @foreach (var genre in item.genre_ids)
+                                            {
+                                                <a href="category-action.html" class="text-primary">
+                                                    @Model.genres[genre]
+                                                </a>
+                                                @if (genre != item.genre_ids.Last())
+                                                {
+                                                    <span>, </span>
+                                                }
+                                            }
+                                        </span>
+                                    </div>
+                                    <p class="movie-banner-text" data-animation-in="fadeInUp" data-delay-in="1.2">
+                                        @item.overview
+                                    </p>
+                                </div>
+                                <div class="d-flex align-items-center r-mb-23" data-animation-in="fadeInUp"
+                                     data-delay-in="1.2">
+                                        <a asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@item.id" class="btn btn-hover iq-button">
+                                        <i class="fa fa-info-circle mr-2"
+                                           aria-hidden="true"></i>Detail
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-12 trailor-video iq-slider d-none d-lg-block">
+                                    <a href="@Model.movieTrailer.FirstOrDefault(x => x.Key == item.id).Value" class="video-open playbtn" tabindex="0">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px"
+                                         viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
+                                    <polygon class="triangle" fill="none" stroke-width="7" stroke-linecap="round"
+                                             stroke-linejoin="round" stroke-miterlimit="10"
+                                             points="73.5,62.5 148.5,105.8 73.5,149.1 "></polygon>
+                                    <circle class="circle" fill="none" stroke-width="7" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-miterlimit="10" cx="106.8" cy="106.8" r="103.3">
+                                    </circle>
+                                 </svg>
+                                    <span class="w-trailor text-uppercase">Watch Trailer</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+            <div class="swiper-banner-button-next ">
+                <i class="ri-arrow-left-s-line arrow-icon"></i>
+            </div>
+            <div class="swiper-banner-button-prev">
+                <i class="ri-arrow-right-s-line arrow-icon"></i>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- MainContent -->
+<div class="main-content">
+    <section id="iq-favorites" class="iq-rtl-direction">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 overflow-hidden">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h4 class="main-title">
+                            Popular Movies
+                        </h4>
+                        <a href="view-all.html" class="text-primary iq-view-all">View All</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Swiper -->
+            <div class="favourite-slider">
+                <div class="swiper pt-2 pt-md-4 pt-lg-4 iq-rtl-direction" data-swiper="common-slider">
+                    <ul class="swiper-wrapper m-0 p-0">
+                        
+                        @foreach (var item in Model.popularMovies.results)
+                        {
+                        <li class="swiper-slide slide-item">
+                            <div class="block-images position-relative">
+                                <div class="img-box">
+                                        <img src="https://image.tmdb.org/t/p/original/@item.poster_path" class="img-fluid" alt="">
+                                </div>
+                                <div class="block-description">
+                                        <h6 class="iq-title"><a asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@item.id">@item.title</a></h6>
+                                    <div class="movie-time d-flex align-items-center my-2">
+                                        <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
+                                            @if (item.vote_average == 0)
+                                            {
+                                                <li>
+                                                    <a href="javascript:void(0);" class="text-primary">
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            }
+                                            else if (item.vote_average <= 1)
+                                            {
+                                                <li>
+                                                    <a href="javascript:void(0);" class="text-primary">
+                                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li>
+                                                    <a href="javascript:void(0);" class="text-primary">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            }
+                                            @if (item.vote_average < 2)
+                                            {
+                                                <li>
+                                                    <a href="javascript:void(0);" class="text-primary">
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            }
+                                            else if (item.vote_average <= 3)
+                                            {
+                                                <li>
+                                                    <a href="javascript:void(0);" class="text-primary">
+                                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li>
+                                                    <a href="javascript:void(0);" class="text-primary">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            }
+                                            @if (item.vote_average < 4)
+                                            {
+                                                <li>
+                                                    <a href="javascript:void(0);" class="text-primary">
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            }
+                                            else if (item.vote_average <= 5)
+                                            {
+                                                <li>
+                                                    <a href="javascript:void(0);" class="text-primary">
+                                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li>
+                                                    <a href="javascript:void(0);" class="text-primary">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            }
+                                            @if (item.vote_average < 6)
+                                            {
+                                                <li>
+                                                    <a href="javascript:void(0);" class="text-primary">
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            }
+                                            else if (item.vote_average <= 7)
+                                            {
+                                                <li>
+                                                    <a href="javascript:void(0);" class="text-primary">
+                                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li>
+                                                    <a href="javascript:void(0);" class="text-primary">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            }
+                                            @if (item.vote_average < 8)
+                                            {
+                                                <li>
+                                                    <a href="javascript:void(0);" class="text-primary">
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            }
+                                            else if (item.vote_average <= 9)
+                                            {
+                                                <li>
+                                                    <a href="javascript:void(0);" class="text-primary">
+                                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li>
+                                                    <a href="javascript:void(0);" class="text-primary">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                        <span class="text-white pl-1">@item.vote_average/10 (IMDb)</span>
+                                    </div>
+                                    <div class="movie-time d-flex align-items-center my-2">
+                                        <span class="text-body">
+                                            @foreach (var genre in item.genre_ids)
+                                            {
+                                                <a href="category-action.html">
+                                                    @Model.genres[genre]
+                                                </a>
+                                                @if (genre != item.genre_ids.Last())
+                                                {
+                                                    <span>, </span>
+                                                }
+                                            }
+                                        </span>
+                                    </div>
+                                    <div class="hover-buttons">
+                                        <a asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@item.id" role="button" class="btn btn-hover">
+                                            <i class="fa fa-info-circle mr-1" aria-hidden="true"></i>
+                                            Detail
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </li>
+                        }
+
+                    </ul>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="iq-upcoming-movie" class="iq-rtl-direction">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 overflow-hidden">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h4 class="main-title">
+                            Specials & Latest Movies
+                        </h4>
+                        <a href="view-all.html" class="text-primary iq-view-all">View All</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Swiper -->
+            <div class="favourite-slider">
+                <div class="swiper pt-2 pt-md-4 pt-lg-4 iq-rtl-direction" data-swiper="common-slider">
+                    <ul class="swiper-wrapper m-0 p-0">
+                        
+                        @foreach (var item in Model.upcomingMovies.results)
+                        {
+                        <li class="swiper-slide slide-item">
+                            <div class="block-images position-relative ">
+                                <div class="img-box">
+                                    <img src="https://image.tmdb.org/t/p/original/@item.backdrop_path" class="img-fluid" alt="">
+                                </div>
+                                <div class="block-description">
+                                        <h6 class="iq-title"><a asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@item.id">@item.title</a></h6>
+                                        <div class="movie-time d-flex align-items-center my-2">
+                                            <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
+                                                @if (item.vote_average == 0)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else if (item.vote_average <= 1)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                @if (item.vote_average < 2)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else if (item.vote_average <= 3)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                @if (item.vote_average < 4)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else if (item.vote_average <= 5)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                @if (item.vote_average < 6)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else if (item.vote_average <= 7)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                @if (item.vote_average < 8)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else if (item.vote_average <= 9)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                            <span class="text-white pl-1">@item.vote_average/10 (IMDb)</span>
+                                        </div>
+                                    <div class="hover-buttons">
+                                            <a asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@item.id" role="button" class="btn btn-hover">
+                                            <i class="fa fa-info-circle mr-1" aria-hidden="true"></i>
+                                            Detail
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </li>
+                        }
+
+                    </ul>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="iq-suggestede" class="iq-rtl-direction">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 overflow-hidden">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h4 class="main-title">
+                            Movies Recommended For You
+                        </h4>
+                        <a href="view-all.html" class="text-primary iq-view-all">View All</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Swiper -->
+            <div class="favourite-slider">
+                <div class="swiper pt-2 pt-md-4 pt-lg-4  iq-rtl-direction" data-swiper="common-slider">
+                    <ul class="swiper-wrapper m-0 p-0">
+                        
+                        @foreach (var item in Model.trendingMovies.results)
+                        {
+                            <li class="swiper-slide slide-item">
+                                <div class="block-images position-relative ">
+                                    <div class="img-box">
+                                        <img src="https://image.tmdb.org/t/p/original/@item.backdrop_path" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="block-description">
+                                        <h6 class="iq-title"><a asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@item.id">@item.title</a></h6>
+                                        <div class="movie-time d-flex align-items-center my-2">
+                                            <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
+                                                @if (item.vote_average == 0)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else if (item.vote_average <= 1)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                @if (item.vote_average < 2)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else if (item.vote_average <= 3)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                @if (item.vote_average < 4)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else if (item.vote_average <= 5)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                @if (item.vote_average < 6)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else if (item.vote_average <= 7)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                @if (item.vote_average < 8)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else if (item.vote_average <= 9)
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="text-primary">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                            <span class="text-white pl-1">@item.vote_average/10 (IMDb)</span>
+                                        </div>
+                                        <div class="hover-buttons">
+                                            <a asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@item.id" role="button" class="btn btn-hover">
+                                                <i class="fa fa-info-circle mr-1" aria-hidden="true"></i>
+                                                Detail
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+                        }
+
+                    </ul>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
