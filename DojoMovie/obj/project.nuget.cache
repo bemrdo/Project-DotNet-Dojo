@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uTAZP8kkbbR1Of6uqZhtKmtC3ctTPtOmJWHQ1l7/GBvm/MQ9y50QTVw8EdkPKJQExq5x8Zm+SrIj+xYB2dMgdw==",
+  "dgSpecHash": "V6m0ZLrk71lIBkgV04K9nBJfOA+uLXZU/XDsMmvUefQBUi47l3msJ3BqLssEgGldl8gIsd8ac+aghCYHDOYDRQ==",
   "success": true,
-  "projectFilePath": "C:\\xampp\\htdocs\\DojoMovie\\DojoMovie.csproj",
+  "projectFilePath": "C:\\xampp\\htdocs\\Project-DotNet-Dojo\\DojoMovie\\DojoMovie.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bemrd\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\bemrd\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

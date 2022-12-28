@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\xampp\\htdocs\\DojoMovie\\DojoMovie.csproj": {}
+    "C:\\xampp\\htdocs\\Project-DotNet-Dojo\\DojoMovie\\DojoMovie.csproj": {}
   },
   "projects": {
-    "C:\\xampp\\htdocs\\DojoMovie\\DojoMovie.csproj": {
+    "C:\\xampp\\htdocs\\Project-DotNet-Dojo\\DojoMovie\\DojoMovie.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\xampp\\htdocs\\DojoMovie\\DojoMovie.csproj",
+        "projectUniqueName": "C:\\xampp\\htdocs\\Project-DotNet-Dojo\\DojoMovie\\DojoMovie.csproj",
         "projectName": "DojoMovie",
-        "projectPath": "C:\\xampp\\htdocs\\DojoMovie\\DojoMovie.csproj",
+        "projectPath": "C:\\xampp\\htdocs\\Project-DotNet-Dojo\\DojoMovie\\DojoMovie.csproj",
         "packagesPath": "C:\\Users\\bemrd\\.nuget\\packages\\",
-        "outputPath": "C:\\xampp\\htdocs\\DojoMovie\\obj\\",
+        "outputPath": "C:\\xampp\\htdocs\\Project-DotNet-Dojo\\DojoMovie\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bemrd\\AppData\\Roaming\\NuGet\\NuGet.Config",
